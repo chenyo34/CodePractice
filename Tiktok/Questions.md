@@ -1,6 +1,6 @@
 *Tree Decreasment*
 
-A tree can be represented as an unweighted undirected graph of $t$ nodes nodes numbered from $1$ to $t$ nodes and $t-1$  edges where the $i^{th}$ edge connects the nodes numbered $\text{t\_from} [i]$ and $\text{t\_to}[i]$.  
+A tree can be represented as an unweighted undirected graph of $t$ nodes nodes numbered from $1$ to $t$ nodes and $t-1$  edges where the $i^{th}$ edge connects the nodes numbered $t-from [i]$ and $\text{t\_to}[i]$.  
 
 
 A value $\text{val}[i]$ is associated with $i^{th}$ node. In a single operation, two nodes *(could be the same node)* can be selected, and their(its) value(s) can be decremented by 1 at a cost equal to the distance between the two nodes, i.e, the number of edges in the simple path between them. The distance between it and itself is 0.  
