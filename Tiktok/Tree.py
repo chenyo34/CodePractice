@@ -13,6 +13,7 @@ class Tree:
 
         # If the given nodes are the same
         if x == y:
+            print("Reach the destination!")
             return [x]
 
         negbs = []
@@ -23,14 +24,24 @@ class Tree:
                 negbs.append(self.t_from[i])
 
         path.append(x)
-
+        # print(path)
         if negbs == []:
             return [-1]
 
         for negb in negbs:
-            print(negb)
-            curPath = self.getPath(negb, y, path)
-            print(path.append(curPath))
+            # print(negb)
+            nextPath = self.getPath(negb, y, path)
+            if nextPath and y in nextPath:
+                print(nextPath)
+                return path + nextPath
+        print("Cannot reach y!")
+
+        return [-1]
+
+
+###############
+#### Test Cases
+###############
 
 
 my_tree = Tree(7,
