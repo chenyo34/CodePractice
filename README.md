@@ -2,7 +2,7 @@
 
 Code Interview Questions Implementation
 
-Question1 --- Tree Decrement
+## Question1 --- Tree Decrement
 
 *Tree Decreasment*
 
@@ -22,8 +22,8 @@ To minimize the cost, we'd like to see the **best secriano** (all nodes have a e
 Also, since the question gurantees that the given tree can be decreased to 0, which means there must be a "true" pair tfor each node 
 
 $$
-V = \{1, \dots, t\},
-E = \{e_1, \dots, e_{t-1}\},
-P=\{(x_1,y_1), \dots, (x_n, y_n)\}\ \text{where } x_i, y_i \in V,
+V = \\{1, \dots, t\\},
+E = \\{e_1, \dots, e_{t-1}\\},
+P=\\{(x_1,y_1), \dots, (x_n, y_n)\\}\ \text{where } x_i, y_i \in V,
 $$
 
