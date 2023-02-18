@@ -38,6 +38,8 @@ class Tree:
 
         return [-1]
 
+    def treeDecrement(self):
+        return 4
 
 ###############
 #### Test Cases
@@ -49,6 +51,6 @@ my_tree0 = Tree(7,
                [2, 3, 4, 5, 6, 7],
                [1, 2, 3, 4, 5, 3, 2]
             )
-cost0 =
+cost0 = 4
 
 
