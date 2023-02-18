@@ -19,7 +19,7 @@ Suppose $t$ = 3, t_from = [1, 1],  t_to = [2, 3] and $\text{val} = [3, 1, 2]$.Th
 
 To minimize the cost, we'd like to see the **best secriano** (all nodes have a even value, which implies that they can complete the decreasement with 0 cost in total).
 
-Also, since the question gurantees that the given tree can be decreased to 0, which means there must be a "true" pair tfor each node 
+Also, since the question gurantees that the given tree can be decreased to 0, which means there must be a "true" pair for each node 
 
 $$
 V = \\{1, \dots, t\\},
