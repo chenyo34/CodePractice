@@ -27,3 +27,15 @@ E = \\{e_1, \dots, e_{t-1}\\},
 P=\\{(x_1,y_1), \dots, (x_n, y_n)\\}\ \text{where } x_i, y_i \in V,
 $$
 
+## Question 2 -- Multi-dimensional Selection
+
+Given a 2-d array arr of size n x m, a selection is defined as an array of integers such that it contains ateast ( m/ 21 integers from each row of arr. The cost of the selection is defined as the maximumdifference between any two integers of the selection.
+Suppose kis the minimum cost of all the possible selections for the given 2-d array. Find themaximum value of the product of k* the number of integers considered in the selection with theminimum cost.
+*Example*
+Suppose n = 3, m = 2, and arr = [[1, 2], [3, 4], [8, 9]]
+Some of the possible selections are [2, 3, 8], [1, 2, 3, 9], [1, 3, 4, 8, 9] etc. The cost of these selectionsare 8 - 2 = 6, 9 - 1 = 8, and 8 respectively.
+Here the minimum cost of all the possible selections is 6. The possible selections with the cost 6 are2, 4, 8] and [2, 3, 4, 8]. The maximum value of the required product is obtained using the latterselection i.e.6*4 = 24. Hence the answer is 24.
+Function DescriptionComplete the function getMaxProductin the editor below.
+getMaxProduct has the following parameter:int arrln][m]: the given 2-d array
+Returns
+int: the maximum possible product
