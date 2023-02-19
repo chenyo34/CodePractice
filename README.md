@@ -4,6 +4,9 @@ Code Interview Questions Implementation
 
 ## Question1 --- Tree Decrement
 
+Please see the latest version by the following shared Notion link.  
+https://www.notion.so/Tree-Decrement-e84e1514b19f4f819ff1916ee89a9ed1?pvs=4
+
 *Tree Decreasment*
 
 A tree can be represented as an unweighted undirected graph of $t$ nodes nodes numbered from $1$ to $t$ nodes and $t-1$  edges where the $i^{th}$ edge connects the nodes numbered t_from $[i]$ and t_to $[i]$.
@@ -19,7 +22,7 @@ Suppose $t$ = 3, t_from = [1, 1],  t_to = [2, 3] and $\text{val} = [3, 1, 2]$.Th
 
 To minimize the cost, we'd like to see the **best secriano** (all nodes have a even value, which implies that they can complete the decreasement with 0 cost in total).
 
-Also, since the question gurantees that the given tree can be decreased to 0, which means there must be a "true" pair tfor each node 
+Also, since the question gurantees that the given tree can be decreased to 0, which means there must be a "true" pair for each node 
 
 $$
 V = \\{1, \dots, t\\},

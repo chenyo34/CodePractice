@@ -38,6 +38,8 @@ class Tree:
 
         return [-1]
 
+    def treeDecrement(self):
+        return 4
 
 
 
@@ -76,8 +78,12 @@ my_tree = Tree(7,
                [1, 1, 2, 2, 3, 6],
                [2, 3, 4, 5, 6, 7],
                [1, 2, 3, 4, 5, 3, 2])
+
 d1 = min_cost(7,
                [1, 1, 2, 2, 3, 6],
                [2, 3, 4, 5, 6, 7],
                [1, 2, 3, 4, 5, 3, 2])
 print(d1)
+
+
+
