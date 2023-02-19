@@ -54,16 +54,20 @@ def min_cost(t, t_from, t_to, val):
         map[t_to[i]-1].add(t_from[i]-1)
     check_list = [i for i in range(len(val)) if val[i] == 1]
 
-    cur = check_list[0]
+    
     cost = 0
     while check_list:
+        cur = check_list[0]
         cur_child = map[cur]
+        check_list.remove(cur)
+        cost += 1
+        next_child = []
         for child in cur_child:
             if child in check_list:
                 check_list.remove(child)
                 cost += 1
-            else:
-                cur_child = map[child]
+            next_child.append(child)
+        cur_child = next_child
 
     return cost
 
