@@ -11,6 +11,7 @@ import random
 
 
 def createValidTree(num, step):
+
     """
     num: positive integer
         The number of nodes you want to generate
@@ -43,7 +44,7 @@ def createValidTree(num, step):
         val[y - 1] += 1
         step -= 1
 
-    return t_from, t_to, val
+    return Tree(num,t_from, t_to,val), t_from, t_to, val
 
 
 class MyTestCase(unittest.TestCase):
@@ -60,7 +61,7 @@ class MyTestCase(unittest.TestCase):
                          [],
                          [],
                          [100])
-        self.assertEqual(testTree0.treeDecrement(), 0)
+        self.assertEqual(testTree0.min_cost(), 0)
 
     def testcase1(self):
         testTree1 = Tree(7,
@@ -68,15 +69,15 @@ class MyTestCase(unittest.TestCase):
                          [2, 3, 4, 5, 6, 7],
                          [1, 2, 3, 4, 5, 3, 2]
                          )
-        self.assertEqual(testTree1.treeDecrement(), 4)
+        self.assertEqual(testTree1.min_cost(), 4)
 
     def testcase2(self):
-        testTree2 = Tree(6,
+        testTree2 = Tree(7,
                          [1, 2, 3, 4, 5, 7],
                          [2, 3, 4, 5, 6, 6],
                          [7, 6, 5, 4, 3, 2, 1]
                          )
-        self.assertEqual(testTree2.treeDecrement(), 4)
+        self.assertEqual(testTree2.min_cost(), 4)
 
     def testcase3(self):
         testTree3 = Tree(5,
@@ -84,8 +85,15 @@ class MyTestCase(unittest.TestCase):
                          [2, 3, 4, 5],
                          [3, 0, 1, 1, 1]
                          )
-        self.assertEqual(testTree3.treeDecrement(), 4)
+        self.assertEqual(testTree3.min_cost(), 4)
 
+    def testRandomCases(self):
+        randomtree = createValidTree(5,5)[0]
+        randomtree.showTree()
+
+        print("=============================")
+        # Calculate the min cost for it
+        print(randomtree.min_cost())
 
 if __name__ == '__main__':
     unittest.main()

@@ -9,6 +9,14 @@ class Tree:
         self.t_to = t_to
         self.val = val
 
+    def showTree(self):
+        print("==== t_from =========")
+        print(self.t_from)
+        print("==== t_to ==========")
+        print(self.t_to)
+        print("==== val ===========")
+        print(self.val)
+
     def getPath(self, x, y, path = []):
 
         # If the given nodes are the same
@@ -43,33 +51,38 @@ class Tree:
 
 
 
-def min_cost(t, t_from, t_to, val):
+    def min_cost(self):
 
-    for i in range(len(val)):
-        val[i] = val[i]%2
+        t = self.t
+        val = self.val
+        t_from = self.t_from
+        t_to = self.t_to
 
-    map = [set() for i in range(t)]
-    for i in range(len(t_from)):
-        map[t_from[i]-1].add(t_to[i]-1)
-        map[t_to[i]-1].add(t_from[i]-1)
-    check_list = [i for i in range(len(val)) if val[i] == 1]
+        for i in range(len(val)):
+            val[i] = val[i]%2
 
-    
-    cost = 0
-    while check_list:
-        cur = check_list[0]
-        cur_child = map[cur]
-        check_list.remove(cur)
-        cost += 1
-        next_child = []
-        for child in cur_child:
-            if child in check_list:
-                check_list.remove(child)
-                cost += 1
-            next_child.append(child)
-        cur_child = next_child
+        map = [set() for i in range(t)]
+        for i in range(len(t_from)):
+            map[t_from[i]-1].add(t_to[i]-1)
+            map[t_to[i]-1].add(t_from[i]-1)
+        check_list = [i for i in range(len(val)) if val[i] == 1]
 
-    return cost
+
+        cost = 0
+        while check_list:
+            cur = check_list[0]
+            cur_child = map[cur]
+            check_list.remove(cur)
+            cost += 1
+            next_child = []
+            for child in cur_child:
+                if child in check_list:
+                    check_list.remove(child)
+                    cost += 1
+                next_child.append(child)
+            cur_child = next_child
+
+        return cost
 
 
 
@@ -83,11 +96,8 @@ my_tree = Tree(7,
                [2, 3, 4, 5, 6, 7],
                [1, 2, 3, 4, 5, 3, 2])
 
-d1 = min_cost(7,
-               [1, 1, 2, 2, 3, 6],
-               [2, 3, 4, 5, 6, 7],
-               [1, 2, 3, 4, 5, 3, 2])
-print(d1)
+
+print(my_tree.min_cost())
 
 
 
