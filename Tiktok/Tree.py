@@ -66,20 +66,22 @@ class Tree:
             map[t_from[i]-1].add(t_to[i]-1)
             map[t_to[i]-1].add(t_from[i]-1)
         check_list = [i for i in range(len(val)) if val[i] == 1]
-
-
+    
         cost = 0
+        cur_child = []
+        cur = check_list[0]
+        cur_child = {1: map[cur]}
+        check_list.remove(cur)
         while check_list:
-            cur = check_list[0]
-            cur_child = map[cur]
-            check_list.remove(cur)
-            cost += 1
-            next_child = []
-            for child in cur_child:
-                if child in check_list:
-                    check_list.remove(child)
-                    cost += 1
-                next_child.append(child)
+            next_child = dict()
+            for key in cur_child.keys():
+                for child in cur_child[key]:
+                    if child in check_list:
+                        check_list.remove(child)
+                        cost += key
+                        next_child[1] = map[child]
+                    else:
+                        next_child[key+1] = map[child]
             cur_child = next_child
 
         return cost
