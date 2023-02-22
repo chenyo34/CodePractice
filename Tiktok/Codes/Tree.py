@@ -52,7 +52,6 @@ class Tree:
 
 
     def min_cost(self):
-
         t = self.t
         val = self.val
         t_from = self.t_from
@@ -65,26 +64,45 @@ class Tree:
         for i in range(len(t_from)):
             map[t_from[i]-1].add(t_to[i]-1)
             map[t_to[i]-1].add(t_from[i]-1)
-        check_list = [i for i in range(len(val)) if val[i] == 1]
-    
-        cost = 0
-        cur_child = []
-        cur = check_list[0]
-        cur_child = {1: map[cur]}
-        check_list.remove(cur)
-        while check_list:
-            next_child = dict()
-            for key in cur_child.keys():
-                for child in cur_child[key]:
-                    if child in check_list:
-                        check_list.remove(child)
-                        cost += key
-                        next_child[1] = map[child]
-                    else:
-                        next_child[key+1] = map[child]
-            cur_child = next_child
 
+        childs = [i for i in range(t) if len(map[i]) == 1]
+        remaining = t
+        cost = 0
+
+        while childs and remaining > 2:
+            remaining -= len(childs)
+            new_childs = []
+            for l in childs:
+                parent = map[l].pop()
+                map[parent].remove(l)
+                if val[l] == 1:
+                    cost += 1
+                    val[parent] = 1-val[parent]
+                if len(map[parent]) == 1:
+                    new_childs.append(parent)
+            childs = new_childs
+
+        if childs and val[childs[0]] == 1:
+            cost += 1
         return cost
+
+    #     cur_child = []
+    #     cur = check_list[0]
+    #     cur_child = {1: map[cur]}
+    #     check_list.remove(cur)
+    #     while check_list:
+    #         next_child = dict()
+    #         for key in cur_child.keys():
+    #             for child in cur_child[key]:
+    #                 if child in check_list:
+    #                     check_list.remove(child)
+    #                     cost += key
+    #                     next_child[1] = map[child]
+    #                 else:
+    #                     next_child[key+1] = map[child]
+    #         cur_child = next_child
+
+    #     return cost
 
 
 
